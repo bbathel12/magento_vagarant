@@ -56,6 +56,7 @@ config.vm.synced_folder vagrantConfig['synced_folder']['host_path'],  vagrantCon
   config.vm.provision "shell", inline: "sudo awk '/<Directory \\/>/,/AllowOverride None/{sub(\"None\", \"All\",$0)}{print}' /etc/apache2/apache2.conf > /tmp/tmp.apache2.conf"
   config.vm.provision "shell", inline: "sudo mv /tmp/tmp.apache2.conf /etc/apache2/apache2.conf"
   config.vm.provision "shell", inline: "sudo awk '/<Directory \\/var\\/www\\/>/,/AllowOverride None/{sub(\"None\", \"All\",$0)}{print}' /etc/apache2/apache2.conf > /tmp/tmp.apache2.conf"
+  config.vm.provision "shell", inline: "sudo mv /tmp/tmp.apache2.conf /etc/apache2/apache2.conf"
   config.vm.provision "shell", inline: "echo Made it to before magento provision"
 
   config.vm.provision "shell", inline: "sudo rm -Rf /var/www/html"
