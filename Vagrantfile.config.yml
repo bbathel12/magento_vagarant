@@ -1,0 +1,31 @@
+ip: 192.168.10.10
+s3:
+  accesskey: "AKIAIPRNHSWEQNWHLCDQ"
+  secret_key: "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"
+  bucket: "foggy-project-dhj6"
+synced_folder:
+  host_path: "/home/brice/magento_book"
+  guest_path: "/vagrant-magento-box/"
+mysql:
+  host: "127.0.0.1"
+  username: root
+  password: user123
+http_basic:
+  repo_magento_com:
+    username: 4216c7959f839e2ec3664319ecd92b17 
+    password: 421aa7882359a5e4af6f3637e7a0405d
+github_oauth:
+ github_com: "d79fb920d4m4c2fb9d8798b6ce3a043f0b7c2af6"
+magento:
+ db_name: "magento"
+ admin_firstname: "John"
+ admin_lastname: "Doe"
+ admin_password: "admin123"
+ admin_user: "admin"
+ admin_email: "email@change.me"
+ backend_frontname: "admin"
+ language: "en_US"
+ currency: "USD"
+ timezone: "Europe/London"
+ base_url: "http://magento.box"
+ fixture: "small"
