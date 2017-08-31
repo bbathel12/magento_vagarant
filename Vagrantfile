@@ -51,6 +51,8 @@ config.vm.synced_folder vagrantConfig['synced_folder']['host_path'],  vagrantCon
   config.vm.provision "shell", inline: "sudo update-rc.d apache2 defaults"
   config.vm.provision "shell", inline: "sudo service apache2 start"
   config.vm.provision "shell", inline: "sudo a2enmod rewrite"
+  config.vm.provision "shell", inline: "sudo touch /tmp/tmp.apache2.conf"
+  config.vm.provision "shell", inline: "sudo chmod 777 /tmp/tmp.apache2.conf"
   config.vm.provision "shell", inline: "sudo awk '/<Directory \\/>/,/AllowOverride None/{sub(\"None\", \"All\",$0)}{print}' /etc/apache2/apache2.conf > /tmp/tmp.apache2.conf"
   config.vm.provision "shell", inline: "sudo mv /tmp/tmp.apache2.conf /etc/apache2/apache2.conf"
   config.vm.provision "shell", inline: "sudo awk '/<Directory \\/var\\/www\\/>/,/AllowOverride None/{sub(\"None\", \"All\",$0)}{print}' /etc/apache2/apache2.conf > /tmp/tmp.apache2.conf"
@@ -70,9 +72,9 @@ config.vm.synced_folder vagrantConfig['synced_folder']['host_path'],  vagrantCon
 
   config.vm.provision "shell", inline: "sudo mysql --user=#{vagrantConfig['mysql']['username']} --password=#{vagrantConfig['mysql']['password']} -e \"CREATE DATABASE #{vagrantConfig['magento']['db_name']};\""
 
-  config.vm.provision "shell", inline: "echo \n\n\n\n\n\n\n*******************************************"
+  config.vm.provision "shell", inline: "echo \"\n\n\n\n\n\n\n*******************************************\""
   config.vm.provision "shell", inline: "echo Made it to after magento database"
-  config.vm.provision "shell", inline: "echo \n\n\n\n\n\n\n*******************************************"
+  config.vm.provision "shell", inline: "echo \"\n\n\n\n\n\n\n*******************************************\""
 
   config.vm.provision "shell", inline: "sudo php /var/www/html/bin/magento setup:install --base-url=\"#{vagrantConfig['magento']['base_url']}\" --db-host=\"#{vagrantConfig['mysql']['host']}\" --db-user=\"#{vagrantConfig['mysql']['username']}\" --db-password=\"#{vagrantConfig['mysql']['password']}\" --db-name=\"#{vagrantConfig['magento']['db_name']}\" --admin-firstname=\"#{vagrantConfig['magento']['admin_firstname']}\" --admin-lastname=\"#{vagrantConfig['magento']['admin_lastname']}\" --admin-email=\"#{vagrantConfig['magento']['admin_email']}\" --admin-user=\"#{vagrantConfig['magento']['admin_user']}\" --admin-password=\"#{vagrantConfig['magento']['admin_password']}\" --backend-frontname=\"#{vagrantConfig['magento']['backend_frontname']}\" --language=\"#{vagrantConfig['magento']['language']}\" --currency=\"#{vagrantConfig['magento']['currency']}\" --timezone=\"#{vagrantConfig['magento']['timezone']}\""
   config.vm.provision "shell", inline: "sudo php /var/www/html/bin/magento deploy:mode:set developer"
