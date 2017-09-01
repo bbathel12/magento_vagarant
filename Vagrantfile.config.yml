@@ -4,18 +4,18 @@ s3:
   secret_key: "5Z9Lj+kI8wpwDjSvwWU8q0btJ4QGLrNStnxAB2Zc"
   bucket: "foggy-project-dhj6"
 synced_folder:
-  host_path: "/home/brice/magento_book"
-  guest_path: "/vagrant-magento-box/"
+  host_path: "/Users/bricebathel/iwd_projects/demo-box"
+  guest_path: "/demo-box/"
 mysql:
   host: "127.0.0.1"
   username: root
   password: user123
 http_basic:
   repo_magento_com:
-    username: 4216c7959f839e2ec3664319ecd92b17 
-    password: 421aa7882359a5e4af6f3637e7a0405d
+    username: "4216c7959f839e2ec3664319ecd92b17"
+    password: "421aa7882359a5e4af6f3637e7a0405d"
 github_oauth:
- github_com: "d79fb920d4m4c2fb9d8798b6ce3a043f0b7c2af6"
+ github_com: "b1eff399d3b0bfe2837bc3a4a195b98a21024765"
 magento:
  db_name: "magento"
  admin_firstname: "John"
