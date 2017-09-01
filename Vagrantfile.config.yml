@@ -15,7 +15,7 @@ http_basic:
     username: "4216c7959f839e2ec3664319ecd92b17"
     password: "421aa7882359a5e4af6f3637e7a0405d"
 github_oauth:
- github_com: "b1eff399d3b0bfe2837bc3a4a195b98a21024765"
+ github_com: "************************************"
 magento:
  db_name: "magento"
  admin_firstname: "John"
